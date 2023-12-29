@@ -1,0 +1,80 @@
+{% if section.settings.ankitSectionCheckbox %}
+  <div style="text-align: {{ section.settings.text_position }}">
+    <p style="font-size: {{ section.settings.font_size }}px; padding-left: {{ section.settings.padding_left }}px; padding-top: {{ section.settings.padding_top }}px">
+      {{ section.settings.ankitSectionId }}
+    </p>
+  </div>
+
+{% else %}
+  <h5>Please enable the checkbox to type</h5>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Ankit section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "ankitSectionId",
+      "label": "Enter Text",
+      "default": "default tag here"
+    },
+    {
+      "type": "checkbox",
+      "id": "ankitSectionCheckbox",
+      "label": "Enable your text",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Position your text",
+      "options": [
+        {"value": "left", "label":"Left"},
+           {"value": "center", "label":"Center"},
+        {"value": "right", "label":"Right"}
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 30,
+      "step": 5,
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "label": "Padding Left",
+      "default": 30
+    }
+  ],
+  "presets" : [
+    {
+      "name":"Ankit Text Section",
+      "category":"text"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

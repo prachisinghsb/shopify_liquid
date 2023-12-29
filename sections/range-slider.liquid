@@ -1,0 +1,29 @@
+{% capture rangeSliderExample %}
+  <div id="rangeSliderExample">
+    <div class="legacy-card" data-sectioned data-title="Background color">
+      <div class="range-slider-container">
+        <label class="range-slider-label">Opacity percentage</label>
+        <input type="range" id="opacityRange" min="0" max="100" value="32" />
+        <output id="opacityValue">32</output>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var rangeValue = 32;
+      var opacityRange = document.getElementById('opacityRange');
+      var opacityValue = document.getElementById('opacityValue');
+
+      opacityRange.value = rangeValue;
+      opacityValue.textContent = rangeValue;
+
+      opacityRange.addEventListener('input', function() {
+        rangeValue = opacityRange.value;
+        opacityValue.textContent = rangeValue;
+      });
+    });
+  </script>
+{% endcapture %}
+
+{{ rangeSliderExample | strip_html }}
